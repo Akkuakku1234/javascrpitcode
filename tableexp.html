@@ -1,0 +1,85 @@
+<html>
+
+
+<table id="dataTable2">
+
+    <thead>
+        <td width="50">
+            <p> <strong>Sno</strong>
+            </p>
+        </td>
+        <td width="50">
+            <p align="center"> <strong>FirstName</strong>
+            </p>
+        </td>
+        <td width="50">
+            <p align="center">
+                <strong>LastName</strong>
+            </p>
+        </td>
+        <td width="60">
+            <p align="center">
+                <strong>City</strong>
+            </p>
+        </td>
+        <td width="60">
+            <p align="center">
+                <strong>Country</strong>
+            </p>
+        </td>
+
+
+    </thead>
+    <tbody>
+
+        <td valign="top" width="50">
+            <p>
+                <input type="text" value="" maxlength="255" class="textborder" class="table" />
+            </p>
+        </td>
+        <td width="50">
+            <p align="center">
+                <input type="text" value="" maxlength="255" class="textbordersmall" />
+            </p>
+        </td>
+        <td width="50">
+            <p align="center">
+                <input type="text" value="" maxlength="255" class="textbordersmall" />
+            </p>
+        </td>
+        <td width="60">
+            <p align="center">
+                <input type="text" value="" maxlength="255" class="textbordersmall" />
+            </p>
+        </td>
+        <td width="60">
+            <p align="center">
+                <input type="text" value="" maxlength="255" class="textbordersmall" />
+            </p>
+        </td>
+        </tr>
+    </tbody>
+</table>
+<input type="submit" value="Add row to bottom" onclick="bottom('dataTable2');">
+<input type="submit" value="Add row to top" onclick="addtop('dataTable2');">
+<script>
+    function bottom(tableID) {
+        var table = document.getElementById(tableID)
+            // for (var l = 0; l < 2; l++) {
+        var cl = table.tBodies[0].rows[0].cloneNode(true)
+        table.tBodies[0].appendChild(cl)
+    }
+    // }
+
+    function addtop(table1) {
+        var table = document.getElementById(table1)
+        var rowcount = table.tBodies[0].rows.length;
+        console.log(rowcount);
+        // for (var k = 0; k > 1; k--) {
+        var call = table.tBodies[0].rows[0].cloneNode(true)
+        table.tBodies[0].prepend(call)
+    }
+    // }
+</script>
+
+</html>

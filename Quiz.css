@@ -1,0 +1,63 @@
+body {
+    background-image: url('./imagejs/istockphoto-1166678206-612x612.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 220%;
+    font-size: 25px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+#Select_Category {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 800;
+    border-color: black;
+    border-radius: 20px;
+    padding: 12px;
+}
+
+option {
+    font-size: 20px;
+    font-weight: 800;
+    font-style: italic;
+}
+
+#Select_Difficulty {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 800;
+    border-color: black;
+    border-radius: 20px;
+    padding: 12px;
+}
+
+#Display_questions {
+    font-size: 25px;
+    color: blue;
+    font-weight: bolder;
+    background-color: azure;
+    width: 80%;
+    margin-left: 100px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+#parts {
+    padding-bottom: 10px;
+}
+
+#Display_incAnswer0 {
+    color: black;
+}
+
+#Display_incAnswer1 {
+    color: black;
+}
+
+#Display_incAnswer2 {
+    color: black;
+}
+
+#Display_Answer {
+    color: black;
+}

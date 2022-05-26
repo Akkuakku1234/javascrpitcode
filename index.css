@@ -1,0 +1,39 @@
+#employees {
+    table-layout: auto;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+.tableborder {
+    border-bottom: 1px solid rgb(146, 146, 240);
+    padding: 10px;
+}
+
+.tablehead {
+    background-color: beige;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#check:focus td {
+    background-color: lightgrey;
+}
+
+.delete {
+    background: none;
+    padding: 0px;
+    border: none;
+    color: red;
+}
+
+.edit {
+    background: none;
+    padding: 0px;
+    border: none;
+    color: blue;
+}

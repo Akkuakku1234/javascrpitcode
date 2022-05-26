@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <script src="script.js"></script> -->
+    <link rel="stylesheet" href="index.css" />
+    <script src="jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Here a loader is created which 
+   loads till response comes -->
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status" id="loading">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <h1>AdminUI</h1>
+
+    <!-- table for showing data -->
+    <table id="employees"></table>
+    <script>
+        // api url 
+        const api_url =
+            "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
+
+        // Defining async function 
+        async function getapi(api_url) {
+
+            // Storing response 
+            const response = await fetch(api_url);
+
+            // Storing data in form of JSON 
+            var data = await response.json();
+            console.log(data);
+            if (response) {
+                hideloader();
+            }
+            show(data);
+            // document.write(data.name)
+            // document.getElementById("data").innerHTML = data
+
+        }
+        // Calling that async function 
+        getapi(api_url);
+
+        // Function to hide the loader 
+        function hideloader() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        // Function to define innerHTML for HTML table 
+        let tab
+        let cnter = 0
+
+        function show(data) {
+            tab =
+                `<tr class="tablehead"> 
+  <th>Select<th> 
+    <th>id</th>               
+  <th>Name</th> 
+  <th>Email</th> 
+  <th>Role</th> 
+   <th>Action</th> 
+  </tr>`;
+
+            // Loop to access all rows 
+            for (let r of data) {
+                cnter++
+                tab += `<tr id = ${cnter} class="tableborder"> 
+ <td><input id = ${cnter} type="checkbox" class="check" onclick="markRow(this.id)"></td>
+ <th></th>
+ <td>${r.id}</td> 
+  <td>${r.name} </td> 
+ <td>${r.email}</td> 
+ <td>${r.role}</td> 
+ 
+ 
+    <td><button id = ${cnter} class="delete"  onclick="del_record(this.id)">Delete<i class='fas fa-trash-alt'></i></button>
+     <button id = ${cnter}  class="edit" onclick="del_record(this.id)">Edit</button></td>  
+</tr>`;
+                // console.log(cnter)
+            }
+            // Setting innerHTML as tab variable 
+            document.getElementById("employees").innerHTML = tab;
+
+
+        }
+
+        function del_record(ID) {
+            // console.log("Record deleted")
+            // console.log(tab)
+            // console.log(ID)
+            document.getElementById(ID).remove()
+
+            // for (let r of tab) {
+
+
+            // } 
+            // console.log(document.getElementById(ID))
+
+
+
+
+        }
+        var arr1 = []
+
+        function markRow(ID) {
+            const row = document.getElementsByClassName('tableborder');
+            const checkboxes = document.getElementsByClassName('check');
+
+
+            if (checkboxes[ID - 1].checked)
+                row[ID - 1].style = "background-color: grey"
+            else
+                row[ID - 1].style = "background-color:transparent"
+
+
+            if (checkboxes[ID - 1].checked) {
+                arr1.push(ID);
+                console.log(arr1);
+            }
+
+
+        }
+
+        function remove_selected() {
+            for (var i = 0; i < arr1.length; i++) {
+                // checkboxes.getElementById(i).remove();
+                // console.log(arr1[i]);
+                document.getElementById(arr1[i]).remove()
+            }
+
+        }
+    </script>
+    <div id="data"></div>
+    <div><button id='removable' class="delete_records" onclick="remove_selected()">Delete Selected</button></div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script src="Quiz.js"></script>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+
+<body>
+    <!-- <div style="background-image: url('./imagejs/istockphoto-1166678206-612x612.jpg');" class="background"> -->
+
+    <h1>Quiz Time</h1>
+    <form name='form1' id='form1' action='/action_page.php'>
+        Select Category:<select name='Select Category' id='Select_Category' onchange='getDifficultyLevel()'>
+            <option selected='selected' >Any Category</option>
+            </select></br>
+        </br>
+        Select Difficulty Level: <select name='Select Difficulty' id='Select_Difficulty' onchange="getQuestions()">
+            <option  selected='selected'>Any Difficulty Level</option>
+          </select></br>
+        </br> Display Questions:
+        <div name='Display Questions' id='Display_questions'>
+            <!-- <input type="radio" id="Display_Answers" value="Display_Answers"> -->
+            <div id='Display_button' onclick='submitButton()'></div>
+        </div>
+
+    </form>
+    <!-- 
+    </div> -->
+
+</body>
+
+</html>
